@@ -1,0 +1,14 @@
+{
+  "name": "verify-pubsub-cli",
+  "version": "1.0.0",
+  "description": "CLI for the verify-pubsub package",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Robin Fehr",
+  "license": "MIT",
+  "dependencies": {
+    "verify-pubsub": "^1.0.0"
+  }
+}
