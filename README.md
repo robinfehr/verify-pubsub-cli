@@ -11,11 +11,11 @@ To read more about it goto the verify-pubsub repo.
 ## CLI Usage
 
 ```
-verify-pubsub publish --dbtype redis --interval 10 --host localhost --port 6379 --password somePassword --key fooBar
+verify-pubsub publish --dbtype redis --interval 10 --host localhost --port 6379 --password somePassword --key fooBar --progress 1
 ```
 
 ```
-verify-pubsub subscribe --dbtype redis --host localhost --port 6379 --password somePassword --key fooBar
+verify-pubsub subscribe --dbtype redis --host localhost --port 6379 --password somePassword --key fooBar --progress 1
 ```
 
 Optional note:

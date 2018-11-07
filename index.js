@@ -32,20 +32,25 @@ require('yargs')
       desc: 'Set the password for the database',
       alias: 'p',
     })
+    .option('progress', {
+      desc: 'Show the progress. 1 = true, 0 = false',
+      alias: 'v',
+    })
   } , (argv) => {
     console.info('Publish - Starting to setup the db connection');
     new dbWrapper({
       database: argv.dbtype,
       host: argv.host,
       port: argv.port,
-      password: argv.password
+      password: argv.password,
+      progress: !!argv.progress
     }, (db) => {
       db.startPublish(argv.key, argv.interval);
     });
 
   })
   .example('$0 publish --dbtype redis --interval 10 --host localhost --port 6379 --password somePassword --key fooBar', '')
-  .command('subscribe', 'Start subscribing to a certain key for a database type', (yargs) => {
+  .command('listen', 'Start subscribing to a certain key for a database type', (yargs) => {
     yargs.option('dbtype', {
       desc: 'Set the database e.g. "redis"',
       alias: 'db',
@@ -62,7 +67,7 @@ require('yargs')
         demandOption: true
       })
       .option('interval', {
-        desc: 'Set the interval of the publisher in [ms]',
+        desc: 'Set the interval of the subscriber in [ms]',
         alias: 'i',
         default: 10
       })
@@ -75,15 +80,20 @@ require('yargs')
         desc: 'Set the password for the database',
         alias: 'p',
       })
+      .option('progress', {
+        desc: 'Show the progress. 1 = true, 0 = false',
+        alias: 'v',
+      })
   }, (argv) => {
     console.info('Subscribe - Starting to setup the db connection');
     new dbWrapper({
       database: argv.dbtype,
       host: argv.host,
       port: argv.port,
-      password: argv.password
+      password: argv.password,
+      progress: !!argv.progress
     }, (db) => {
-      db.startSubscribe(argv.key);
+      db.startListen(argv.key, argv.interval);
     });
 
   })

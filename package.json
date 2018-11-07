@@ -9,6 +9,6 @@
   "author": "Robin Fehr",
   "license": "MIT",
   "dependencies": {
-    "verify-pubsub": "^1.0.0"
+    "verify-pubsub": "1.3.0"
   }
 }
